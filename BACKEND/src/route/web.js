@@ -1,5 +1,6 @@
 import express from "express";
 import patient from '../controllers/patientController';
+import admin from '../controllers/adminController';
 
 let router = express.Router();
 
@@ -14,11 +15,11 @@ let initWebRoutes = ( app ) =>
     router.put( "/api/update-patient", patient.updatePatient ); // update patient
 
     // route admin
-    router.post( "/api/create-admin", patient.createAdmin ); // create admin
-    router.get( "/api/get-admin", patient.getAdmin ); // get admin
-    router.get( "/api/get-admin-by-id", patient.getAdminById ); // get admin by id
-    router.delete( "/api/delete-admin", patient.deleteAdmin ); // delete admin
-    router.put( "/api/update-admin", patient.updateAdmin ); // update admin
+    router.post( "/api/create-admin", admin.createAdmin ); // create admin
+    router.get( "/api/get-admin", admin.getAdmin ); // get admin
+    router.get( "/api/get-admin-by-id", admin.getAdminById ); // get admin by id
+    router.delete( "/api/delete-admin", admin.deleteAdmin ); // delete admin
+    router.put( "/api/update-admin", admin.updateAdmin ); // update admin
     return app.use( "/", router );
 }
 

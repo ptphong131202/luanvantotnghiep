@@ -80,7 +80,7 @@ let createPatient = ( data ) =>
                 birthday: data.birthday,
                 phone: data.phone,
                 gender: data.gender,
-                roleId: data.roleId
+                roleId: "R3"
             } );
 
             resolve( {

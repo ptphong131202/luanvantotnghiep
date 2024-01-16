@@ -218,7 +218,7 @@ let updateAdmin = ( data ) =>
                     errMessage: 'Missing required parameter!'
                 } )
             }
-            let patient = await db.Patient.findOne( {
+            let patient = await db.Admin.findOne( {
                 where: { id: data.id },
                 raw: false
 
@@ -227,22 +227,19 @@ let updateAdmin = ( data ) =>
             {
                 patient.email = data.email;
                 patient.fullName = data.fullName;
-                patient.address = data.address;
-                patient.birthday = data.birthday;
-                patient.gender = data.gender;
                 patient.phone = data.phone;
                 await patient.save();
 
                 resolve( {
                     errCode: 0,
-                    errMessage: 'Update patient succeed!'
+                    errMessage: 'Update admin succeed!'
                 } );
 
             } else
             {
                 resolve( {
                     errCode: 2,
-                    errMessage: 'Patient not found!'
+                    errMessage: 'admin not found!'
                 } );
 
             }
