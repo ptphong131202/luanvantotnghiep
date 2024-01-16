@@ -20,6 +20,9 @@ let initWebRoutes = ( app ) =>
     router.get( "/api/get-admin-by-id", admin.getAdminById ); // get admin by id
     router.delete( "/api/delete-admin", admin.deleteAdmin ); // delete admin
     router.put( "/api/update-admin", admin.updateAdmin ); // update admin
+
+    // route doctor
+
     return app.use( "/", router );
 }
 
