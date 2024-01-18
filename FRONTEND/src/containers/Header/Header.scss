@@ -15,6 +15,7 @@
 
     .language {
         padding: 0 10px;
+        font-weight: bold;
 
         .language-vi {
             cursor: pointer;
@@ -25,19 +26,21 @@
         }
 
         .welcom {
+            font-weight: bold;
             padding: 0 10px;
 
             b {
-                color: red;
+                color: #1eff06;
             }
         }
 
         .language-en {
             padding: 0 10px;
             cursor: pointer;
+            font-weight: bold;
 
             &.active {
-                color: orange;
+                color: #42fffa;
             }
         }
 

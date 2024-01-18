@@ -1,4 +1,27 @@
 {
+    "system": {
+        "header": {
+            "user": "User",
+            "manage-patient": "Manage Patient",
+            "manage-doctor": "Manage Doctor",
+            "manage-admin": "Manage Admin"
+        },
+        "home": {
+            "home": "Home page",
+            "welcome": "WELCOME TO THE DASHBOARD!"
+        },
+        "patient": {
+            "add-account": "Add account"
+        },
+        "btn": {
+            "edit": "Edit",
+            "delete": "Delete",
+            "save": "Save",
+            "cancel": "Cancel",
+            "change": "Change",
+            "add": "Add"
+        }
+    },
     "homeheader": {
         "specialty": "Medical specialty",
         "searchdoctor": "Find a doctor by specialty",

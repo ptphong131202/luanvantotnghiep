@@ -72,7 +72,7 @@ let createAdmin = ( data ) =>
                 } )
             }
             let hashPassWord = await hashUserPassword( data.password );
-            let res = db.Admin.create( {
+            await db.Admin.create( {
                 email: data.email,
                 password: hashPassWord,
                 fullName: data.fullName,
@@ -150,7 +150,7 @@ let getAdminById = ( id ) =>
             {
                 resolve( {
                     errCode: 0,
-                    message: "get list admin successfully!",
+                    message: "get admin successfully!",
                     data: patients
                 } )
             }
@@ -158,7 +158,7 @@ let getAdminById = ( id ) =>
             {
                 resolve( {
                     errCode: 1,
-                    message: "get list admin failed!"
+                    message: "get admin failed!"
                 } )
             }
 
@@ -250,6 +250,8 @@ let updateAdmin = ( data ) =>
         }
     } )
 }
+
+
 
 module.exports = {
     createAdmin: createAdmin,

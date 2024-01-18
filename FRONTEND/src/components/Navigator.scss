@@ -10,6 +10,16 @@
         list-style-type: none;
     }
 
+    .iconhome {
+        width: 50px;
+        text-align: center;
+        border-right: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+
     .menu-group {
         &:hover {
             cursor: pointer;

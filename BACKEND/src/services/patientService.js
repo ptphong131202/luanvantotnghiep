@@ -46,6 +46,52 @@ let checkUserEmail = ( userEmail ) =>
         }
     } )
 }
+let checkUserEmail1 = ( userEmail ) =>
+{
+    return new Promise( async ( resolve, reject ) =>
+    {
+        try
+        {
+            let user = await db.Doctor.findOne( {
+                where: { email: userEmail }
+            } )
+            if ( user )
+            {
+                resolve( true )
+            } else
+            {
+                resolve( false )
+            }
+
+        } catch ( e )
+        {
+            reject( e )
+        }
+    } )
+}
+let checkUserEmail2 = ( userEmail ) =>
+{
+    return new Promise( async ( resolve, reject ) =>
+    {
+        try
+        {
+            let user = await db.Admin.findOne( {
+                where: { email: userEmail }
+            } )
+            if ( user )
+            {
+                resolve( true )
+            } else
+            {
+                resolve( false )
+            }
+
+        } catch ( e )
+        {
+            reject( e )
+        }
+    } )
+}
 
 // create a new patient
 let createPatient = ( data ) =>
@@ -257,10 +303,64 @@ let updatePatient = ( data ) =>
     } )
 }
 
+let login = ( email, password ) =>
+{
+    return new Promise( async ( resolve, reject ) =>
+    {
+        console.log( email, password );
+        try
+        {
+            let userData = {};
+            let isExist = await checkUserEmail( email );
+            if ( isExist )
+            {
+                //user already exist
+                let user = await db.Patient.findOne( {
+                    attributes: [ "id", 'email', 'roleId', 'fullName' ],
+                    where: { email: email },
+                    raw: true,
+
+                } );
+                if ( user )
+                {
+                    let check = await bcrypt.compare( password, user.password );
+                    if ( check )
+                    {
+                        userData.errCode = 0;
+                        userData.errMessage = 'OK';
+
+                        delete user.password;
+                        userData.user = user;
+                    }
+                    else
+                    {
+                        userData.errCode = 3;
+                        userData.errMessage = 'Wrong password';
+                    }
+                } else
+                {
+                    userData.errCode = 2;
+                    userData.errMessage = `User not found`;
+                }
+
+            } else
+            {
+                userData.errCode = 1;
+                userData.errMessage = `Your's Email isn't exist in our system, plz try other email`
+            }
+            resolve( userData )
+        } catch ( e )
+        {
+            reject( e );
+        }
+    } )
+}
+
 module.exports = {
     createPatient: createPatient,
     getPatient: getPatient,
     getPatientById: getPatientById,
     deletePatient: deletePatient,
-    updatePatient: updatePatient
+    updatePatient: updatePatient,
+    login: login,
 }

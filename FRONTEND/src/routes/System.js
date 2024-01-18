@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
-import UserRedux from '../containers/System/admin/UserRedux';
+import ManagePatient from '../containers/System/admin/ManagePatient';
+import SystemHome from '../containers/System/admin/SystemHome';
+import Header from '../containers/Header/Header';
+import AddPatient from '../containers/System/admin/AddPatient';
 class System extends Component
 {
     render ()
     {
-        /* { this.props.isLoggedIn && <Header /> } */
         const { systemMenuPath, isLoggedIn } = this.props;
         return (
             <React.Fragment>
@@ -14,7 +16,11 @@ class System extends Component
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
-                            <Route path="/system/user-redux" component={ UserRedux } />
+                            {/* patient */ }
+                            <Route path="/system/manage-patient" component={ ManagePatient } />
+                            <Route path="/system/add-patient" component={ AddPatient } />
+
+                            <Route path="/system/home" component={ SystemHome } />
                             <Route component={ () => { return ( <Redirect to={ systemMenuPath } /> ) } } />
                         </Switch>
                     </div>

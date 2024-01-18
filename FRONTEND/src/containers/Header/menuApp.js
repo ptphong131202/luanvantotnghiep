@@ -1,23 +1,21 @@
 export const adminMenu = [
     { //quản lý người dùng
-        name: 'menu.admin.manage-user',
+        name: 'system.header.user',
         menus: [
             {
-                name: 'menu.admin.manage-admin', link: '/system/manage-admin'
+                name: 'system.header.manage-patient', link: '/system/manage-patient'
             },
             {
-                name: 'menu.admin.crud-redux', link: '/system/user-redux'
+                name: 'system.header.manage-doctor', link: '/system/manage-patient'
             },
             {
-                name: 'menu.admin.manage-doctor', link: '/system/manage-doctor'
+                name: 'system.header.manage-admin', link: '/system/manage-patient'
                 /* subMenus: [
                     { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
-                    { name: 'menu.system.system-administrator.user-redux', link: '/system/user-redux' },
+                    { name: 'menu.system.system-administrator.user-redux', link: '/system/manage-patient' },
                 ] */
             },
-            { //quản lý kế hoạch khám bệnh bác sĩ
-                name: 'menu.doctor.manage-shedule', link: '/doctor/manage-shedule'
-            },
+
 
 
 

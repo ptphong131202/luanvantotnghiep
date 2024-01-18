@@ -30,7 +30,7 @@ class Header extends Component
         let menu = [];
         if ( userInfo && !_.isEmpty( userInfo ) )
         {
-            let role = userInfo.role;
+            let role = userInfo.roleId;
             if ( role === USER_ROLE.ADMIN )
             {
                 menu = adminMenu;
@@ -62,7 +62,6 @@ class Header extends Component
                 <div className="header-tabs-container">
                     <Navigator menus={ this.state.menuApp } />
                 </div>
-
                 {/* language */ }
                 <div className='language'>
                     <span className='welcom'><FormattedMessage id="homeheader.welcome" />, <b>{ userInfo && userInfo.fullName ? userInfo.fullName : `${ userInfo.firstName } ${ userInfo.lastName }` } !</b></span>
